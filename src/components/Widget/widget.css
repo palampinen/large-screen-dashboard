@@ -1,0 +1,31 @@
+.widget {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0em;
+	width: 25%;
+	color: #FFF;
+}
+
+
+@media screen and (orientation:landscape) { 
+	.dashboard > .widget:nth-child(2),
+	.dashboard > .widget:nth-child(4),
+	.dashboard > .widget:nth-child(5),
+	.dashboard > .widget:nth-child(7) {
+		background: rgba(0,0,0,.04);
+	}
+}
+
+@media screen and (orientation:portrait) { 
+ 	.widget { width: 50%;  }
+
+	.dashboard > .widget:nth-child(2),
+	.dashboard > .widget:nth-child(3),
+	.dashboard > .widget:nth-child(6),
+	.dashboard > .widget:nth-child(7) {
+		background: rgba(0,0,0,.04);
+	}
+
+}

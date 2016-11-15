@@ -1,0 +1,37 @@
+
+@keyframes scale-in {
+  from { transform: scale(0); opacity: 0.5; }
+  to {   transform: scale(1); opacity: 1; }
+}
+
+
+
+.rss {
+	display: block;
+	font-weight: 200;
+	font-size: 0.35em;
+	animation: scale-in 0.5s ease 0s;
+	transform-origin: 100% 0;
+}
+
+
+.rss__item {
+	text-align: left;
+	padding: 1em;
+	display: block;
+	animation: scale-in 0.2s ease 0s;
+	transform-origin: 100% 0;
+}
+
+.rss__item:nth-child(2n) {
+	background: rgba(0,0,0,.05);
+} 
+
+.rss__title {
+	display: block;
+	font-weight: 500;
+	font-size: 120%;
+	margin-bottom: 0.2em;
+}
+.rss__content {}
+.rss__created { display: block; font-weight: 500; }

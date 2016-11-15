@@ -1,0 +1,30 @@
+.dashboard {
+	background: #4C6289;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	font-size: 16px;
+
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+@media (min-width: 1200px) {
+  .dashboard { font-size: 30px; }
+}
+
+@media (min-width: 1400px) {
+  .dashboard { font-size: 45px; }
+}
+
+@media (min-width: 1921px) {
+ .dashboard { font-size: 50px; }
+}
+
+@media (min-width: 2400px) {
+  .dashboard { font-size: 55px; }
+}
