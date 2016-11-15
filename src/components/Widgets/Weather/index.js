@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { dataFetch } from '../../../services/widget-api';
 import { CONFIG } from '../../../services/config';
+import Spinner from '../../Spinner';
 import './weather.css';
 
 const WIDGET_CONFIG = {
@@ -39,15 +40,15 @@ class Weather extends Component {
   render() {
   	const { data } = this.state;
 
-  	console.log(data)
     return (
       <div className="weather">
-        { data &&
-        	<div>
+        { data
+        	? <div>
 	          <i className={'weather__icon icon ' + WEATHER_ICONS[data.weather[0].icon] }></i> 
-						<span className="weather__temperature">{data.main.temp}°C</span>
+						<span className="weather__temperature">{Math.round(data.main.temp * 10) / 10}°C</span>
 						<span className="weather__description">{data.weather[0].description}</span>
 					</div>
+					: <Spinner />
 				}
       </div>
     );

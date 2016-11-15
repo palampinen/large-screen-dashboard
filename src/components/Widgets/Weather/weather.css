@@ -1,18 +1,21 @@
 .weather {display: block; text-align: center; }
 
-.weather__icon {  margin: 0 0 -0.35em;
-	font-size: 7em;
+.weather__icon {
+	margin: -0.35em 0 -0.3em;
+	font-size: 6.5em;
 	display: block;
-	color: rgba(255, 255, 255, .7);
+	color: rgba(255, 255, 255, .8);
+	animation: scale-in 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
 }
-	
+
 .weather__temperature {
 	font-weight: 600;
 	font-size: 1.4em;
 }
 .weather__description {
 	display: block;
-	font-size: 1em;
+	font-size: 0.9em;
+	padding: 0 0.1em;
 	font-weight: 200;
 	text-transform: uppercase;
 }

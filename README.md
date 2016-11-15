@@ -1,5 +1,8 @@
 # Large Screen Dashboard
 
+![lg-dashboard](https://raw.githubusercontent.com/palampinen/large-screen-dashboard/master/large-screen-dashboard.png)
+
+
 WIP!
 
 Dashboard with React

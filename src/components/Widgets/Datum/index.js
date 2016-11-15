@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import { dataFetch } from '../../../services/widget-api';
 import './datum.css';
 
 class Datum extends Component {

@@ -5,7 +5,8 @@ import { WIDGET_TYPES } from '../../services/widgets';
 import Weather from '../Widgets/Weather';
 import Datum from '../Widgets/Datum';
 import Rss from '../Widgets/Rss';
-
+import Clock from '../Widgets/Clock';
+import HtmlWidget from '../Widgets/Html';
 
 
 class Widget extends Component {
@@ -16,12 +17,16 @@ class Widget extends Component {
   renderWidget(type) {
     switch(type) {
       case WIDGET_TYPES.weather:
-        return <Weather  {...this.props} />;
+        return <Weather {...this.props} />;
       case WIDGET_TYPES.datum:
-        return <Datum  {...this.props} />;
+        return <Datum {...this.props} />;
       case WIDGET_TYPES.rss:
-        return <Rss  {...this.props} />;
-      default: 
+        return <Rss {...this.props} />;
+      case WIDGET_TYPES.clock:
+        return <Clock {...this.props} />;
+      case WIDGET_TYPES.html:
+        return <HtmlWidget {...this.props} />;
+      default:
         return <p>No widget {type} found.</p>
     }
   }

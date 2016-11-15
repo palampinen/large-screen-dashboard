@@ -2,4 +2,6 @@
 	display: block;
 	font-size: 2em;
 	font-weight: 200;
+	animation: scale-in 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+	transform-origin: 50% 50%;
 }

@@ -9,10 +9,9 @@ class dashboard extends Component {
 
   	const { widgets, selectItem } = this.props;
     return (
-
       <div className="dashboard">
         {widgets.map((item, index) => (
-          <Widget key={index} type={item.type} selectItem={selectItem} />
+          <Widget key={index} config={item} type={item.type} selectItem={selectItem} />
         ))}
       </div>
     );

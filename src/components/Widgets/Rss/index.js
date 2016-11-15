@@ -1,8 +1,10 @@
 
 import React, { Component } from 'react';
 import moment from 'moment';
+import _ from 'lodash';
 import { dataFetch } from '../../../services/widget-api';
-import { CONFIG } from '../../../services/config';
+import Spinner from '../../Spinner';
+
 import './rss.css';
 
 
@@ -12,7 +14,6 @@ const WIDGET_CONFIG = {
 	params:{
 		v: '1.0',
 		num: '3',
-		// callback: '',
 		q: url
 	}
 }
@@ -25,7 +26,7 @@ class Rss extends Component {
 		super(props);
 
 		this.state = {
-			data: [],
+			data: null,
 			error: false,
 		}
 	}
@@ -35,14 +36,16 @@ class Rss extends Component {
 	}
 
 	fetchData() {
-		return dataFetch(WIDGET_CONFIG.url, WIDGET_CONFIG.params)
+		const { config } = this.props;
+		const params = _.defaultsDeep({ q: config.url }, WIDGET_CONFIG.params);
+		return dataFetch(WIDGET_CONFIG.url, params)
 			.then(data => this.setState({ data: data.responseData.feed.entries }) )
 			.catch(error => console.log('error', error) && this.setState({ error }));
 	}
 
-	renderItem(feed) {
+	renderItem(feed, index) {
 		return (
-			<span className="rss__item" >
+			<span key={index} className="rss__item" >
 				<span className="rss__title">{feed.title}</span>
       	<span className="rss__content">{feed.contentSnippet}</span>
       	<span className="rss__created"><i className="icon ion-android-time"></i> {moment(feed.publishedDate).format('DD.MM.YYYY')}</span>
@@ -53,12 +56,13 @@ class Rss extends Component {
   render() {
   	const { data } = this.state;
 
-  	console.log(data);
+  	if (!data) {
+  		return <Spinner />
+  	}
 
     return (
       <div className="rss">
-				<h1>Feed</h1>
-				{data.map(feed => this.renderItem(feed))}
+				{data.map((feed, index) => this.renderItem(feed, index))}
       </div>
     );
   }

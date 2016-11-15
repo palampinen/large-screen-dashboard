@@ -1,0 +1,37 @@
+.clock {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	animation: scale-in 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.clock .analog {
+	position: absolute;
+	top:10%;
+	left:10%;
+	height: 80%;
+	width: 80%;
+}
+.clock .middot {
+	fill: #FFF;
+	-webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.2));
+	filter: drop-shadow(0 1px 2px rgba(0,0,0,.2));
+}
+.clock .background {
+	stroke-width: 1px;
+	stroke: #fff;
+	fill: rgba(255,255,255, 0);
+}
+
+.clock .hour, .clock .min, .clock .sec {
+	stroke-width: 1px;
+	fill: #eee;
+	stroke: #eee;
+}
+.clock .sec {
+	stroke-width: 1px;
+	stroke: rgba(0,0,0,.5);
+}
+.clock .hourmark {stroke-width:0px; stroke:#ccc; fill:#aaa;}
+

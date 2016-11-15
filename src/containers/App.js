@@ -26,27 +26,33 @@ class App extends Component {
     const { items, chosenItem, closeItem } = this.props;
     const widgets = [
       {
-        type: WIDGET_TYPES.weather,
-        size: 'sm'
+        type: WIDGET_TYPES.html,
+        size: 'lg',
+        targetField: 'value', // in response
+        url: 'https://private-d9236-largescreendashboard.apiary-mock.com/number'
       },
       {
         type: WIDGET_TYPES.rss,
         size: 'sm'
       },
       {
-        type: WIDGET_TYPES.datum,
-        size: 'sm'
+        type: WIDGET_TYPES.html,
+        size: 'sm',
+        targetField: 'html', // in response
+        url: 'https://private-d9236-largescreendashboard.apiary-mock.com/table'
+      },
+      {
+        type: WIDGET_TYPES.html,
+        size: 'lg',
+        targetField: 'value', // in response
+        url: 'https://private-d9236-largescreendashboard.apiary-mock.com/number/alert'
       },
       {
         type: WIDGET_TYPES.datum,
         size: 'sm'
       },
       {
-        type: WIDGET_TYPES.datum,
-        size: 'sm'
-      },
-      {
-        type: WIDGET_TYPES.datum,
+        type: WIDGET_TYPES.clock,
         size: 'sm'
       },
       {
@@ -54,14 +60,15 @@ class App extends Component {
         size: 'sm'
       },
       {
-        type: WIDGET_TYPES.weather,
-        size: 'sm'
+        type: WIDGET_TYPES.rss,
+        size: 'sm',
+        url: 'https://github.com/facebook/react-native/commits/master.atom'
       },
     ];
 
     return (
       <div className="App">
-        <EditButton item={chosenItem} />
+        {/* <EditButton item={chosenItem} /> */ }
         { chosenItem && <DetailItem item={chosenItem} closeItem={closeItem} /> }
         <Dashboard widgets={widgets} />
       </div>
