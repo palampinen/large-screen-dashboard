@@ -6,12 +6,19 @@
 	top: 0;
 	bottom: 0;
 	font-size: 16px;
-
+	overflow-y: auto;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	user-select: none;
 
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 }
+
+::-webkit-scrollbar { display: none; }
 
 @media (min-width: 1200px) {
   .dashboard { font-size: 30px; }
