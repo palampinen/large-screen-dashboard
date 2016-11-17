@@ -1,0 +1,36 @@
+.chart {
+	flex: 1;
+	display: flex;
+	align-self: stretch;
+	justify-content: space-around;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.chart__title {
+	font-size: 0.7em;
+	text-align: center;
+	font-weight: 200;
+	text-transform: uppercase;
+	display: block;
+	position: absolute;
+	top: 1em;
+	left: 0;
+	right: 0;
+}
+
+.chart--type--area .chart__graph,
+.chart--type--line .chart__graph {
+	height: 80%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+
+.chart--status--success.chart--type--line .chart__graph path { stroke: #aaffd0 !important; }
+.chart--status--success.chart--type--area .chart__graph path { fill: #aaffd0 !important; stroke: none !important; opacity: 0.8 !important }
