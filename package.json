@@ -15,6 +15,7 @@
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
+    "victory": "^0.13.7",
     "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
