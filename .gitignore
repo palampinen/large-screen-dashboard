@@ -13,3 +13,4 @@ npm-debug.log
 *.sublime-workspace
 *.sublime-project
 env.js
+widget.config.js
