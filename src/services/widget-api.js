@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 const CROSS_ORIGIN_URL = 'https://crossorigin.me/';
 
 

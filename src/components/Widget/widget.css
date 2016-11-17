@@ -3,14 +3,20 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	padding: 0em;
+	padding: 0;
 	width: 25%;
+	height: 50%;
 	color: #FFF;
 	position: relative;
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.widget--size-lg {
+	width: 50%;
 }
 
 
-@media screen and (orientation:landscape) { 
+@media screen and (orientation:landscape) {
 	.dashboard > .widget:nth-child(2),
 	.dashboard > .widget:nth-child(4),
 	.dashboard > .widget:nth-child(5),
@@ -20,7 +26,7 @@
 }
 
 @media screen and (orientation:portrait) { 
- 	.widget { width: 50%;  }
+ 	.widget { width: 50%; height: 33.33%; }
 
 	.dashboard > .widget:nth-child(2),
 	.dashboard > .widget:nth-child(3),
