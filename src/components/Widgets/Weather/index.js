@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
 import { dataFetch } from '../../../services/widget-api';
-import { CONFIG } from '../../../services/config';
+import { CONFIG } from '../../../constants/config';
 import Spinner from '../../Spinner';
+import WEATHER_ICONS from './weather-icons'
 import './weather.css';
 
 const WIDGET_CONFIG = {
@@ -15,6 +16,8 @@ const WIDGET_CONFIG = {
 	}
 }
 
+const DEFAULT_UPDATE_INTERVAL = 15 * 60 * 1000;
+
 class Weather extends Component {
 
 	constructor(props) {
@@ -24,16 +27,33 @@ class Weather extends Component {
 			data: null,
 			error: false,
 		}
+
+		this.fetchData = this.fetchData.bind(this);
+		this.setDataFetchTimeout = this.setDataFetchTimeout.bind(this);
 	}
+
+	autoRefresher: null
 
 	componentDidMount() {
 		this.fetchData();
 	}
 
+	setDataFetchTimeout() {
+		const { config } = this.props;
+		const updateInterval = config.updateInterval || DEFAULT_UPDATE_INTERVAL;
+		clearTimeout(this.autoRefresher);
+		this.autoRefresher = setInterval(this.fetchData, updateInterval);
+	}
+
+  componentWillUnmount() {
+    clearTimeout(this.autoRefresher);
+  }
+
 	fetchData() {
 		return dataFetch(WIDGET_CONFIG.url, WIDGET_CONFIG.params)
 			.then(data => this.setState({ data }) )
-			.catch(error => console.log('error', error) && this.setState({ error }));
+			.catch(error => console.log('error', error) && this.setState({ error }))
+			.then(this.setDataFetchTimeout);
 	}
 
 
@@ -56,25 +76,3 @@ class Weather extends Component {
 };
 
 export default Weather;
-
-// Maps icons to Ionicons
-const WEATHER_ICONS = {
-	'01d': 'ion-ios-sunny-outline',
-	'02d': 'ion-ios-partlysunny-outline',
-	'03d': 'ion-ios-cloudy-outline',
-	'04d': 'ion-ios-cloud-outline',
-	'09d': 'ion-ios-rainy-outline',
-	'10d': 'ion-ios-rainy-outline',
-	'11d': 'ion-ios-thunderstorm-outline',
-	'13d': 'ion-ios-snowy',
-	'50d': 'ion-ios-cloudy-outline',
-	'01n': 'ion-ios-moon-outline',
-	'02n': 'ion-ios-cloudy-night-outline',
-	'03n': 'ion-ios-cloudy-outline',
-	'04n': 'ion-ios-cloudy-outline',
-	'09n': 'ion-ios-rainy-outline',
-	'10n': 'ion-ios-rainy-outline',
-	'13n': 'ion-ios-thunderstorm-outline',
-	'11n': 'ion-ios-snowy',
-	'50n': 'ion-ios-cloudy-outline',
-};
