@@ -5,7 +5,7 @@ import Spinner from '../../Spinner';
 
 import './html.css';
 
-
+const DEFAULT_UPDATE_INTERVAL = 5 * 60 * 1000;
 class HtmlWidget extends Component {
 
 	constructor(props) {
@@ -16,11 +16,23 @@ class HtmlWidget extends Component {
 			status: null,
 			error: false,
 		}
+
+		this.fetchData = this.fetchData.bind(this);
 	}
 
+
+  autoRefresher: null
+
 	componentDidMount() {
+		const { config } = this.props;
+		const updateInterval = config.updateInterval || DEFAULT_UPDATE_INTERVAL;
+		this.autoRefresher = setInterval(this.fetchData, updateInterval);
 		this.fetchData();
 	}
+
+  componentWillUnmount() {
+    clearInterval(this.autoRefresher);
+  }
 
 	fetchData() {
 		const { config } = this.props;
@@ -45,8 +57,9 @@ class HtmlWidget extends Component {
   	}
 
     return (
-      <div className={`html size--${config.size} status--${status}`}
-        dangerouslySetInnerHTML={{ __html: (data) }} />
+      <div className={`html size--${config.size} status--${status}`}>
+        <div dangerouslySetInnerHTML={{ __html: (data) }} />
+      </div>
     );
   }
 };

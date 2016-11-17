@@ -2,9 +2,9 @@
 	text-align: left;
 }
 
-
 .html table {
 	max-width: 100%;
+	margin: 0 1em;
 	font-size: 0.3em;
 	text-align: left;
 }
@@ -14,7 +14,14 @@
 }
 
 
-
 .html.status--success { color: #aaffd0; }
 .html.status--alert { color: pink; }
-.html.size--lg { font-size: 2.75em; font-weight: 100; }
+.html.size--lg {
+	flex: 1;
+	display: flex;
+	align-self: stretch;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 2.75em;
+	font-weight: 100;
+}
