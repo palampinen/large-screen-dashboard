@@ -1,0 +1,24 @@
+.button--round {
+  cursor: pointer;
+  background: #FFF;
+  color: #666;
+  width: 66px;
+  height: 66px;
+  border-radius: 33px;
+  border: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+  transition: width 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+  animation: scale-in 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-origin: 50% 50%;
+}
+
