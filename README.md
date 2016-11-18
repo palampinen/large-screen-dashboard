@@ -116,7 +116,7 @@ TODO: 'pie' type chart, coloring based on values
 
 ## How to get data to widgets
 
-Used example APIs for `html` and `chart` widgets https://jsapi.apiary.io/previews/largescreendashboard/reference
+Used example APIs for `html` and `chart` widgets http://docs.largescreendashboard.apiary.io/
 
 
 Created with [create-react-app](https://github.com/facebookincubator/create-react-app/).
