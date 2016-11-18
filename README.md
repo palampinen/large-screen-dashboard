@@ -118,6 +118,10 @@ Victory chart
 }
 ```
 
+## How to get data to widgets
+
+Used example APIs for `html` and `chart` widgets https://jsapi.apiary.io/previews/largescreendashboard/reference
+
 
 Created with [create-react-app](https://github.com/facebookincubator/create-react-app/).
 
