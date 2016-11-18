@@ -2,8 +2,6 @@
 
 ![lg-dashboard](https://raw.githubusercontent.com/palampinen/large-screen-dashboard/master/large-screen-dashboard.png)
 
-WIP!
-
 Dashboard with React
 
 
@@ -44,6 +42,8 @@ Available Widget configs
 	type: 'clock'
 }
 ```
+
+Simple Analog clock
 
 ### Date
 Three-lines date widget
@@ -86,11 +86,6 @@ TODO: Add lat & lon as config parameters
 }
 ```
 
-
-Simple Analog clock
-
-TODO: Timezone as parameter
-
 ### RSS
 ```
 {
@@ -117,6 +112,7 @@ Victory chart
 	}
 }
 ```
+TODO: 'pie' type chart, coloring based on values
 
 ## How to get data to widgets
 
