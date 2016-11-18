@@ -9,8 +9,9 @@ class Widget extends Component {
   }
 
   renderWidget(type) {
-
-    const WidgetComponent = widgets[type];
+    // rss -> Rss
+    const upperCasedType = type ? type.charAt(0).toUpperCase() + type.slice(1) : null;
+    const WidgetComponent = widgets[upperCasedType];
 
     if (WidgetComponent) {
       return <WidgetComponent {...this.props} />
