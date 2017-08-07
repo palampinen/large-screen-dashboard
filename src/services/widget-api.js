@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-const CROSS_ORIGIN_URL = 'https://crossorigin.me/';
+const CROSS_ORIGIN_URL = 'https://cors-anywhere.herokuapp.com/';
 
 
 function generalFetch(getUrl, getParams) {
